@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #2a2a2d;
+    border: 1px solid #3399ff;
+    border-radius: 10px;
+
+    .navbar-brand {
+        color: white;
+    }
+
+    .navbar-nav {
+
+        .nav-item {
+            border-radius: 10px;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba($color: #3399ff, $alpha: 0.3);
+            }
+
+            &.selected {
+                background-color: #3399ff;
+            }
+
+            .nav-link {
+                color: white;
+            }
+        }
+    }
+}

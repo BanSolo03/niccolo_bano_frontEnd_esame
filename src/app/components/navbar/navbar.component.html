@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand p-0 m-2">
+  <div class="container-fluid m-0 p-0 justify-content-center">
+    <a class="navbar-brand m-0 px-3">
+      Bano Niccolò
+    </a>
+    <ul class="navbar-nav">
+      <li
+        class="nav-item"
+        (click)="activateLink(1)"
+        [ngClass]="{ selected: activeLink == 1 }"
+      >
+        <span class="nav-link" routerLink="/component1">Link A</span>
+      </li>
+      <li
+        class="nav-item"
+        (click)="activateLink(2)"
+        [ngClass]="{ selected: activeLink == 2 }"
+      >
+        <span class="nav-link" routerLink="/component2">Link B</span>
+      </li>
+      <li
+        class="nav-item"
+        (click)="activateLink(3)"
+        [ngClass]="{ selected: activeLink == 3 }"
+      >
+        <span class="nav-link" routerLink="/component3">Link C</span>
+      </li>
+    </ul>
+  </div>
+</nav>
