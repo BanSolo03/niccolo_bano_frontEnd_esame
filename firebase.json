@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/niccolo-bano-front-end-esame",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
