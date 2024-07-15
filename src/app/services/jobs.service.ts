@@ -14,13 +14,24 @@ export class JobsService {
   private jobsUrl = 'https://niccolo-bano-back-end-esame.vercel.app/api/jobs';
 
   constructor(
-    private readonly http: HttpClient,
-    private readonly toastSrv: ToastrService
+    private readonly http: HttpClient
   ) {}
 
   findAllJobs(limit: number) {
     this.http.get<Job[]>(`${this.jobsUrl}?limit=${limit}`).subscribe((jobs) => {
       this._jobs$.next(jobs);
     });
+  }
+
+  createJob(body: Job) {
+    this.http.post<Job>(`${this.jobsUrl}/new`, body).subscribe((res) => {
+      this.findAllJobs(10)
+    })
+  }
+
+  editJob(id: string, body: Job) {
+    this.http.post<Job>(`${this.jobsUrl}/${id}`, body).subscribe((res) => {
+      this.findAllJobs(10)
+    })
   }
 }

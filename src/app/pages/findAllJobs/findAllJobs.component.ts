@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { JobsService } from 'src/app/services/jobs.service';
 
 @Component({
@@ -14,8 +13,7 @@ export class FindAllJobsComponent {
   limit: FormControl;
 
   constructor(
-    private readonly jobsService: JobsService,
-    private readonly toastSrv: ToastrService
+    private readonly jobsService: JobsService
   ) {
     this.limit = new FormControl('', Validators.nullValidator);
     this.limit.valueChanges.subscribe((res: any) => {

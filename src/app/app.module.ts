@@ -7,21 +7,21 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FindAllJobsComponent } from './pages/findAllJobs/findAllJobs.component';
 import { NewJobComponent } from './pages/newJob/newJob.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { EditJobComponent } from './pages/edit-job/edit-job.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FindAllJobsComponent,
-    NewJobComponent
+    NewJobComponent,
+    EditJobComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

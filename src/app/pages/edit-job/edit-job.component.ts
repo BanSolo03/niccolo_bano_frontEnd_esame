@@ -1,44 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { JobsService } from 'src/app/services/jobs.service';
 
 @Component({
-  selector: 'app-newJob',
-  templateUrl: './newJob.component.html',
-  styleUrls: ['./newJob.component.scss']
+  selector: 'app-edit-job',
+  templateUrl: './edit-job.component.html',
+  styleUrls: ['./edit-job.component.scss']
 })
-export class NewJobComponent implements OnInit {
+export class EditJobComponent {
 
-  jobForm!: FormGroup;
+  editJobForm!: FormGroup;
+
+  id!: FormControl;
 
   errors: string[] = [];
 
   constructor(private readonly jobsService: JobsService) {}
 
   ngOnInit(): void {
-    this.jobForm = new FormGroup({
+    this.editJobForm = new FormGroup({
       titolo: new FormControl('', [Validators.required]),
       descrizioneBreve: new FormControl ('', [Validators.required]),
       dataInserimento: new FormControl ('', [Validators.required]),
       retribuzioneLorda: new FormControl ('', [Validators.required]),
     })
 
-    this.jobForm.valueChanges.subscribe((res: any) => {
+    this.id = new FormControl('', [Validators.required])
+
+    this.editJobForm.valueChanges.subscribe((res: any) => {
+      this.getErrors();
+    })
+
+    this.id.valueChanges.subscribe((res: any) => {
       this.getErrors();
     })
   }
 
-  addNewJob() {
-    if(this.jobForm.valid) {
-      this.jobsService.createJob(this.jobForm.value);
+  editJob() {
+    if(this.editJobForm.valid) {
+      this.jobsService.editJob(this.id.value, this.editJobForm.value);
     }
   }
 
   getErrors() {
     this.errors = [];
-    if (this.jobForm.invalid) {
-      Object.keys(this.jobForm.controls).forEach(field => {
-        const control = this.jobForm.get(field);
+    if (this.editJobForm.invalid) {
+      Object.keys(this.editJobForm.controls).forEach(field => {
+        const control = this.editJobForm.get(field);
         if (control && control.errors && control.dirty) {
           Object.keys(control.errors).forEach(errorKey => {
             let errorMessage = '';
