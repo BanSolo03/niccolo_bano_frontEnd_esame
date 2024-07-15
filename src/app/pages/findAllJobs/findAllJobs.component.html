@@ -11,7 +11,7 @@
         {{ job.descrizioneBreve }}
       </div>
       <div class="col">
-        {{ job.dataInserimento }}
+        {{ job.dataInserimento | date: 'dd/MM/yyyy'}}
       </div>
       <div class="col">
         {{ job.retribuzioneLorda }}
