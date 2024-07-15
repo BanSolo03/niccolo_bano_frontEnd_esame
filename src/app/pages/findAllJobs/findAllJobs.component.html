@@ -1,0 +1,22 @@
+<div class="container-fluid vh-100">
+    <div class="row justify-content-center d-flex">
+        <input class="form-control w-25 m-2" type="number" [formControl]="limit" placeholder="Max number"/>
+    </div>
+  <div class="main-container" *ngIf="(jobs$ | async)?.length">
+    <div class="row" *ngFor="let job of jobs$ | async; let last = last">
+      <div class="col">
+        {{ job.titolo }}
+      </div>
+      <div class="col">
+        {{ job.descrizioneBreve }}
+      </div>
+      <div class="col">
+        {{ job.dataInserimento }}
+      </div>
+      <div class="col">
+        {{ job.retribuzioneLorda }}
+      </div>
+      <div class="divider" *ngIf="!last"></div>
+    </div>
+  </div>
+</div>

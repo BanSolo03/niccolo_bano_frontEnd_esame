@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Component1Component } from './pages/component1/component1.component';
-import { Component2Component } from './pages/component2/component2.component';
+import { FindAllJobsComponent } from './pages/findAllJobs/findAllJobs.component';
+import { NewJobComponent } from './pages/newJob/newJob.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'component1',
+    redirectTo: 'findAll',
     pathMatch: 'full'
   },
   {
-    path: 'component1',
-    component: Component1Component
+    path: 'findAll',
+    component: FindAllJobsComponent
   },
   {
-    path: 'component2',
-    component: Component2Component
+    path: 'newJob',
+    component: NewJobComponent
   }
 ];
 

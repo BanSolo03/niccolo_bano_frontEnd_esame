@@ -1,3 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "bootstrap"
+@import "bootstrap";
+
+@import "ngx-toastr/toastr";
+
+.form-control {
+    background-color: #2a2a2d;
+    border: none;
+    color: white;
+
+    &::placeholder {
+        color: white;
+    }
+
+    &:focus {
+        color: white;
+        background-color: #2a2a2d;
+    }
+}
+
+.col {
+    color: white;
+}
+
+.divider {
+    height: 1px;
+    background-color: #3399ff;
+    margin: 10px 0 10px 0;
+}

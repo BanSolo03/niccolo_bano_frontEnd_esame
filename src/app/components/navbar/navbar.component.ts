@@ -16,7 +16,7 @@ export class NavbarComponent {
 
   initialize() {
     this.activeLink = 1;
-    this.router.navigateByUrl('component1');
+    this.router.navigateByUrl('findAll');
   }
 
   activateLink(activeLink: number) {
