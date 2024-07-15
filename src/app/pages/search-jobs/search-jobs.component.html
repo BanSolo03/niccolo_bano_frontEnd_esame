@@ -1,0 +1,44 @@
+<div class="container-fluid vh-100">
+    <div class="row justify-content-center d-flex">
+      <input
+        class="form-control w-25 m-2"
+        type="text"
+        [formControl]="searchText"
+        placeholder="Testo da cercare"
+      />
+      <input
+        class="form-control w-25 m-2"
+        type="number"
+        [formControl]="limit"
+        placeholder="Numero massimo"
+      />
+    </div>
+    <div class="row header mx-2" *ngIf="(results$ | async)?.length">
+      <div class="col">ID</div>
+      <div class="col">Titolo</div>
+      <div class="col">Descrizione</div>
+      <div class="col">Data Inserimento</div>
+      <div class="col">Retribuzione Lorda</div>
+    </div>
+    <div class="main-container" *ngIf="(results$ | async)?.length">
+      <div class="row" *ngFor="let result of results$ | async; let last = last">
+        <div class="col">
+          {{ result._id }}
+        </div>
+        <div class="col">
+          {{ result.titolo }}
+        </div>
+        <div class="col">
+          {{ result.descrizioneBreve }}
+        </div>
+        <div class="col">
+          {{ result.dataInserimento | date : "dd/MM/yyyy" }}
+        </div>
+        <div class="col">
+          {{ result.retribuzioneLorda }}
+        </div>
+        <div class="divider" *ngIf="!last"></div>
+      </div>
+    </div>
+  </div>
+  
