@@ -1,14 +1,14 @@
 <div class="container-fluid vh-100">
   <div class="row d-flex">
+    <div>
+      <input
+        class="form-control mb-4"
+        [formControl]="id"
+        type="text"
+        placeholder="Id offerta da modificare"
+      />
+    </div>
     <form [formGroup]="editJobForm" (ngSubmit)="editJob()">
-      <div>
-        <input
-          class="form-control mb-4"
-          formControlName="id"
-          type="text"
-          placeholder="Id offerta da modificare"
-        />
-      </div>
       <div>
         <input
           class="form-control"
